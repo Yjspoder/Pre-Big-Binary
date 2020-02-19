@@ -34,7 +34,7 @@ function add(){
 };
 
 function avg(){
-	var sum = sum(...arguments);
+    var sum = sum(...arguments);
     return average= sum / arguments.length;;
 };
 
