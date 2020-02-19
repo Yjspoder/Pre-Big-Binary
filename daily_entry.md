@@ -15,3 +15,5 @@
 
 * Submit problem_1.
 * Write final draft for problem_2.
+* Submit problem_2.
+* Basic setup for feature done.
