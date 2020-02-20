@@ -20,4 +20,4 @@
 ## Day 4 20/02/20
 
 * Write final draft for problem_3.
-* Submit problem_3
+* Submit problem_3.
