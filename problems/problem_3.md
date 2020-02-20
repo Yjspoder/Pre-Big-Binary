@@ -1,8 +1,6 @@
 
 ## I want to refactor a legacy system. You want to rewrite it from scratch. Argument. Then, switch our roles.
 
-  
-
 #### In favour of rewriting the legacy code.
 
 - “We’re programmers. Programmers are, in their hearts, architects, and the first thing they want to do when they get to a site is to bulldoze the place flat and build something grand.We’re not excited by incremental renovation: tinkering, improving, planting flower beds.”- Joel Spolsky
@@ -17,11 +15,7 @@
 
 - Rewriting the code opens up a whole new world of opportunity, as you can use latest technology. Many times alot of issues faced can be solved using new methods.
 
-  
-
 #### In favour of refactoring the legacy code.
-
-  
 
 - Legacy code refactoring will allow the programmer to slowly replace old pieces of code in the system with new ones.A function, a class or a module can be rewritten in the scope of the same project.
 
