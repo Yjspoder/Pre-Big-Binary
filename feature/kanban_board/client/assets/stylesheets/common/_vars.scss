@@ -1,0 +1,23 @@
+// Colors
+$primary: #19bdc0;
+$secondary: rgb(224, 207, 207);
+
+$textPrimary: rgb(59, 57, 57);
+$textSecondary:  #fceed3;
+
+$white: white;
+
+// Fonts
+$font : 'Oswald', sans-serif;
+// box shadow that I like to use
+// $shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+$shadow: 1px 1px 10px 10px rgba(0, 0, 0, 0.08);
+
+// Mixin I like, below comment shows how to use it
+// @include border-radius(0.5rem);
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
