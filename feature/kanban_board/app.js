@@ -11,6 +11,8 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 // Requring The Routing Section
+const projectRouter = require('./routes/projectRouter');
+const columnRouter = require('./routes/columnRouter');
 const indexRouter = require('./routes/indexRouter');
 
 // Mounting The Express Application
@@ -58,6 +60,8 @@ mongoose.connect(
 );
 
 // Providing The Paths
+app.use('api/v1/project' , projectRouter);
+app.use('/api/v1/column' , columnRouter);
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
