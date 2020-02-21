@@ -1,8 +1,17 @@
 import React, {Component} from 'react';
+import {compose} from 'redux';
 import {connect} from "react-redux";
-
-import {createNote , fetchNoteList} from "../redux/actions/noteActions";
+import {createNote , fetchNoteList , updateNote } from "../redux/actions/noteActions";
 import Note from './Note';
+import { DropTarget } from 'react-dnd';
+
+function collect(connect , monitor){
+    return{
+        connectDropTarget: connect.dropTarget(),
+        hovered: monitor.isOver(),
+        note: monitor.getItem(),
+    }
+}
 
 class Column extends Component {
     constructor(props){
@@ -46,9 +55,17 @@ class Column extends Component {
         this.setState({[e.target.name] : e.target.value})
     }
 
+    updateNote = (id) => {
+        const data={
+            noteId: id,
+            columnId: this.props.id,
+        }
+        this.props.updateNote(data , this.props.fetchNoteList);
+    }
+
     render (){
-        // console.log(this.props);
-        return (
+        const { connectDropTarget , hovered , item } = this.props;
+        return connectDropTarget(
             <div className="column-container flex-column">
                 <div className="column-title flex-between">
                     <h5>{this.props.title}</h5>
@@ -90,15 +107,17 @@ class Column extends Component {
                         this.props.noteReducer.noteList &&
                         this.props.noteReducer.noteList.map(note => {
                             return (note.columnId == this.props.id) ? 
-                            <Note title={note.title} /> :
+                            <Note note={note} handleDrop={(id) => this.updateNote(id)}/> :
                             <></>
                         })
                     }
             </div>
-        )
+        ) 
     }
 }
 
 const mapStateToProps = store => store
 
-export default connect(mapStateToProps , {createNote , fetchNoteList})(Column);
+export default compose(DropTarget("note" , {} , collect), 
+    connect(mapStateToProps , {createNote , fetchNoteList , updateNote}))
+    (Column);

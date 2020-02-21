@@ -15,6 +15,7 @@ module.exports = {
         })
     },
     edit: (req , res) => {
+        console.log(req.body , 'inside controller')
         const {columnId} = req.body;
         const {id} = req.params;
         Note.findByIdAndUpdate(id , {columnId} , {new : true} , (err , updatedNote) => {

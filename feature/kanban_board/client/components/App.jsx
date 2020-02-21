@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import '../assets/stylesheets/style.scss';
 import { connect } from 'react-redux';
+import Backend from 'react-dnd-html5-backend';
+import {DndProvider} from 'react-dnd';
 import {fetchColumnList , createColumn} from "../redux/actions/columnActions";
 import Column from './Column';
 
@@ -43,7 +45,10 @@ class App extends Component {
     console.log(this.props)
     return (
       <>
-        <div className="flex">
+        <DndProvider backend={Backend}>
+
+
+        <div className="flex-row">
         {
           this.props.columnReducer.columnList &&
           this.props.columnReducer.columnList.map(column => {
@@ -76,6 +81,7 @@ class App extends Component {
               </div>
           </form>
         </div>
+        </DndProvider>
       </>
     );
   }
