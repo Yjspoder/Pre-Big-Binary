@@ -10,12 +10,14 @@ function add() {
 };
 
 function avg(){
-	var sum = 0;
+    var sum = 0;
     for (var i=0; i < arguments.length; i++) {
         sum += arguments[i];
     };
+    
     var average = sum / arguments.length;
-    return average;
+    return (arguments.length < 1) ? 0 :
+     average;
 };
 
 ```
@@ -34,8 +36,9 @@ function add(){
 };
 
 function avg(){
-    var sum = sum(...arguments);
-    return average= sum / arguments.length;;
+    var sum = add(...arguments);
+    return (arguments.length < 1) ? 0 :
+     average= sum / arguments.length;
 };
 
 ```
