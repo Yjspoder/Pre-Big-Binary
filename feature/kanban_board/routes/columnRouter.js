@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const columnController = require('../controllers/column');
 
-router.get('/' , columnController.list);
+router.get('/list' , columnController.list);
 
 router.post('/create' , columnController.create);
 
