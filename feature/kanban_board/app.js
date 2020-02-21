@@ -14,6 +14,7 @@ require('dotenv').config();
 const projectRouter = require('./routes/projectRouter');
 const columnRouter = require('./routes/columnRouter');
 const indexRouter = require('./routes/indexRouter');
+const noteRouter = require('./routes/noteRouter');
 
 // Mounting The Express Application
 const app = express();
@@ -47,7 +48,7 @@ if (process.env.NODE_ENV === 'development') {
 
 // Connecting With DataBase
 mongoose.connect(
-  'mongodb://localhost:27017/exposuresystem',
+  'mongodb://localhost:27017/kanban-board',
   { useNewUrlParser: true },
   function(err) {
     if (err) {
@@ -60,8 +61,9 @@ mongoose.connect(
 );
 
 // Providing The Paths
-app.use('api/v1/project' , projectRouter);
+app.use('/api/v1/project' , projectRouter);
 app.use('/api/v1/column' , columnRouter);
+app.use('/api/v1/note' , noteRouter);
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
