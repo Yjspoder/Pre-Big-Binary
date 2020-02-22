@@ -1,24 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { DragSource } from 'react-dnd';
-
-const noteSource = {
-    beginDrag(props) {
-        console.log("Dragging");
-        return props
-    },
-    endDrag(props , monitor , component) {
-        return props.handleDrop(props.note._id);
-    }
-}
-
-function collect(connect , monitor) {
-    return {
-        connectDragSource: connect.dragSource(),
-        connectDragPreview: connect.dragPreview(),
-        isDragging: monitor.isDragging(),
-    }
-}
+import {Draggable} from "react-beautiful-dnd";
 
 class Note extends Component {
     constructor(props){
@@ -27,14 +9,24 @@ class Note extends Component {
     render(){
         const {isDragging , connectDragSource , note} = this.props;
         const opacity = isDragging ? 0 : 1;
-        return connectDragSource(
-            <div className="note" style={{ opacity }}>
+        return (
+            <Draggable 
+            draggableId={String(this.props.note._id) } 
+            index={this.props.index} 
+            >
+            {(provided) => {
+              <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                <div className="note" style={{ opacity }}>
                 {this.props.note.title}
-            </div>
+                </div>
+              </div>
+              }
+            }
+            </Draggable>
         )
     }
 };
 
 const mapStateToProps = store => store;
 
-export default connect(mapStateToProps , {})(DragSource('note',noteSource,collect)(Note));
+export default connect(mapStateToProps , {})(Note);

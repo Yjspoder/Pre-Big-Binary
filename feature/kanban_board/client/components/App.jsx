@@ -2,9 +2,8 @@
 import React, { Component } from 'react';
 import '../assets/stylesheets/style.scss';
 import { connect } from 'react-redux';
-import Backend from 'react-dnd-html5-backend';
-import {DndProvider} from 'react-dnd';
-import {fetchColumnList , createColumn} from "../redux/actions/columnActions";
+import {DragDropContext} from 'react-beautiful-dnd';
+import { fetchColumnList , createColumn } from "../redux/actions/columnActions";
 import Column from './Column';
 
 class App extends Component {
@@ -37,17 +36,20 @@ class App extends Component {
   handleCancel = () => {
     this.setState({columnTitle: ''})
   }
+
   handleChange = e => {
     this.setState({[e.target.name] : e.target.value})
+  }
+
+  onDragEnd = () => {
+
   }
   
   render() {
     console.log(this.props)
     return (
       <>
-        <DndProvider backend={Backend}>
-
-
+      <DragDropContext onDragEnd={this.onDragEnd}>
         <div className="flex-row">
         {
           this.props.columnReducer.columnList &&
@@ -81,11 +83,12 @@ class App extends Component {
               </div>
           </form>
         </div>
-        </DndProvider>
+      </DragDropContext>
       </>
     );
-  }
-}
+  };
+};
+
 const mapStateToProps = store => store;
 
 export default connect(mapStateToProps, {fetchColumnList , createColumn})(App);
