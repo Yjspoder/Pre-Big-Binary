@@ -27,7 +27,7 @@ function avg(){
  - This may not seem like a big deal for a small code such as above, but while working on a big application, such repetition make the codebase heavy and might affect performance.
  - A better way to write the above code would be as below:
 ```
-function add(){
+function sum(){
     var sum = 0;
     for (var i=0; i < arguments.length; i++) {
         sum += arguments[i];
