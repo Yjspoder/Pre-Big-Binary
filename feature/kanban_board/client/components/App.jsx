@@ -19,7 +19,6 @@ class App extends Component {
   }
   
   createColumnList = () => {
-    console.log("inside callback")
     const columnTitleList = ["To Do" , "In Progress" , "Review In Progress" , "Review Approved" , "Done"];
     columnTitleList.forEach(title => {
       this.props.createColumn(title)
@@ -46,7 +45,6 @@ class App extends Component {
   }
   
   render() {
-    console.log(this.props)
     return (
       <>
       <DragDropContext onDragEnd={this.onDragEnd}>
