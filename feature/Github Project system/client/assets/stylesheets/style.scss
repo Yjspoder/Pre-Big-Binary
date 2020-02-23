@@ -1,0 +1,17 @@
+// Variables
+@import "./common/vars";
+// CSS Reset
+@import "./lib/reset";
+// Assign base values after reset
+@import "./lib/base";
+// Flex
+@import "./lib/flex";
+// Grid
+@import "./lib/grid";
+// General classes
+@import "./common/general";
+
+//Components
+@import "./components/column.scss";
+@import "./components/note.scss";
+
