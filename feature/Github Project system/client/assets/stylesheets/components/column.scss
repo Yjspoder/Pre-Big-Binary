@@ -1,0 +1,51 @@
+.column-container {
+    padding: 0.5rem;
+    min-width: 15rem !important;
+    margin: 5px;
+    background: $secondary;
+    border-radius: 5px;
+    height: 95vh;
+}
+
+.column-title {
+    align-items: baseline;
+    color: $textPrimary;
+}
+.add-form{
+    background: $secondary;
+    font-size: 1rem;
+    font-weight: 500;
+    color: $textPrimary;
+}
+
+.add-note-btn{
+    background: $primary;
+    font-size: 1rem;
+    font-weight: 500;
+    color: $textPrimary;
+    margin: 1px;
+    border-radius: 5px;
+    padding: 0.2rem;
+    width: 100%;
+}
+.cancel-btn{
+    font-size: 1rem;
+    font-weight: 500;
+    color: $textPrimary;
+    margin: 1px;
+    border-radius: 5px;
+    padding: 0.2rem;
+    width: 100%;
+}
+.buttons {
+    margin-top: 0.2rem;
+}
+
+.add-column-form{
+    margin-top: 1rem;
+}
+
+.add-column-title{
+    border: 1px dotted $secondary;
+    padding: 2rem;
+}
