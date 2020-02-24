@@ -49,6 +49,7 @@ if (process.env.NODE_ENV === 'development') {
 // Connecting With DataBase
 mongoose.connect(
   'mongodb://localhost:27017/kanban-board',
+
   { useNewUrlParser: true },
   function(err) {
     if (err) {
