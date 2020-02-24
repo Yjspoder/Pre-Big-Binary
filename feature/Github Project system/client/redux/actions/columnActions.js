@@ -1,5 +1,4 @@
 const fetchColumnList = cb => dispatch => {
-    console.log("inside fetchColumn")
     dispatch({
         type: "FETCH_COLUMN_LIST_START"
     })
@@ -8,7 +7,6 @@ const fetchColumnList = cb => dispatch => {
     })
     .then(res => res.json())
     .then(columnList => {
-        console.log(columnList);
         if(columnList.columnList.length < 1){
             cb();
         } else {

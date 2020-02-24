@@ -37,7 +37,7 @@ const fetchNoteList = () => dispatch => {
 }
 
 const updateNote = (data , cb) => dispatch => {
-    // console.log(data , 'inside action');
+    console.log(data , 'inside action');
     const noteData = {
         columnId : data.columnId
     }
